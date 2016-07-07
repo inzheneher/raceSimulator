@@ -3,6 +3,7 @@ package com.mav.conf;
 public class Motorcycle extends Vehicle {
 
     private boolean motorcycleCarriage;
+    private final static int amountWheels = 2;
 
     public boolean getMotorcycleCarriage() {
         return motorcycleCarriage;
