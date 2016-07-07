@@ -4,6 +4,7 @@ public class Motorcycle extends Vehicle {
 
     private boolean motorcycleCarriage;
     private final static int amountWheels = 2;
+    private final static int recoveryTime = 15;
 
     public boolean getMotorcycleCarriage() {
         return motorcycleCarriage;
@@ -23,6 +24,15 @@ public class Motorcycle extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        return 0;
+        if(getMotorcycleCarriage()){
+            return amountWheels * getFlatTireProbability();
+        }
+        else {
+            return (amountWheels + 1) * getFlatTireProbability();
+        }
+    }
+
+    public double getRecoveryTime() {
+        return recoveryTime;
     }
 }

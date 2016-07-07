@@ -4,6 +4,7 @@ public class Truck extends Vehicle {
 
     private int cargoWeight;
     private final static int amountWheels = 6;
+    private final static int recoveryTime = 35;
 
     public int getCargoWeight() {
         return cargoWeight;
@@ -23,6 +24,10 @@ public class Truck extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        return 0;
+        return amountWheels * getFlatTireProbability();
+    }
+
+    public double getRecoveryTime() {
+        return recoveryTime;
     }
 }

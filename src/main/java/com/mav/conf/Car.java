@@ -4,6 +4,7 @@ public class Car extends Vehicle {
 
     private int numberOfPeople;
     private final static int amountWheels = 4;
+    private final static int recoveryTime = 25;
 
     public int getNumberOfPeople() {
         return numberOfPeople;
@@ -23,6 +24,10 @@ public class Car extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        return 0;
+        return amountWheels * getFlatTireProbability();
+    }
+
+    public double getRecoveryTime() {
+        return recoveryTime;
     }
 }
