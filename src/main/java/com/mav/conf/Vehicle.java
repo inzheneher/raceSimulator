@@ -13,7 +13,6 @@ public abstract class Vehicle {
     private int speed;
     private int traveledDistance;
     private double flatTireProbability;
-    private double vehicleStopProbability;
 
     public int getSpeed() {
         return speed;
