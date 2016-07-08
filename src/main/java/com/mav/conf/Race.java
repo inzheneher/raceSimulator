@@ -1,11 +1,14 @@
 package com.mav.conf;
 
-public class Race extends Vehicle{
+public class Race {
 
-    public Race(){};
+    private int distance;
 
-    public double getTime(int speed){
-        return (double) getDistance()/speed;
+    public Race() {
+    }
+
+    public double getTime(int speed) {
+        return (double) getDistance() / speed;
     }
 
     public double getVehicleStopProbability() {
@@ -18,5 +21,9 @@ public class Race extends Vehicle{
 
     public int getDistance() {
         return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }
