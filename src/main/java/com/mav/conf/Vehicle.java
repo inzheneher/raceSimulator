@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public abstract class Vehicle {
     private int speed;
     private int traveledDistance;
-    public int distance;
     private double flatTireProbability;
 
     public int getSpeed() {
@@ -40,11 +39,6 @@ public abstract class Vehicle {
         this.traveledDistance = traveledDistance;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-
     public abstract double getVehicleStopProbability();
     public abstract double getRecoveryTime();
-    public abstract int getDistance();
 }

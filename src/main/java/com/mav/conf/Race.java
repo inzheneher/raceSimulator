@@ -4,9 +4,6 @@ public class Race {
 
     private int distance;
 
-    public Race() {
-    }
-
     public double getTime(int speed) {
         return (double) getDistance() / speed;
     }

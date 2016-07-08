@@ -37,7 +37,7 @@ public class Main {
                     Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
                     Truck truck = (Truck) mapper.readValue(jsonNode.get(1).toString(), Vehicle.class);
                     Motorcycle motorcycle = (Motorcycle) mapper.readValue(jsonNode.get(2).toString(), Vehicle.class);
-                    Race race = (Race) mapper.readValue(jsonNode.get(3).toString(), Vehicle.class);
+                    Race race = mapper.readValue(jsonNode.get(3).toString(), Race.class);
 
                     System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
                     System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
