@@ -60,6 +60,8 @@ public class Main {
                     System.out.println("Motorcycle race time: " +
                             race.getTime(motorcycle.getSpeed()));
 
+                    System.out.println();
+
                     System.out.println("Wanna play more? Type 'start'  or 'exit'");
                 }
                 else if (gameStartCondition.equals("exit")){
