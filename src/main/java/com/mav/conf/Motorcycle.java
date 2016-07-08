@@ -25,10 +25,10 @@ public class Motorcycle extends Vehicle {
 
     public double getVehicleStopProbability() {
         if(getMotorcycleCarriage()){
-            return amountWheels * getFlatTireProbability();
+            return (amountWheels + 1) * getFlatTireProbability();
         }
         else {
-            return (amountWheels + 1) * getFlatTireProbability();
+            return amountWheels * getFlatTireProbability();
         }
     }
 

@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mav.conf.Car;
 import com.mav.conf.Motorcycle;
+import com.mav.conf.Truck;
 import com.mav.conf.Vehicle;
 
 import java.io.IOException;
@@ -21,10 +23,15 @@ public class Main {
             ObjectMapper mapper = new ObjectMapper();
             InputStream resourceAsStream = Main.class.getResourceAsStream("/test.json");
             JsonNode jsonNode = mapper.readTree(resourceAsStream);
-            Motorcycle testObj = new Motorcycle();
-            testObj.setMotorcycleCarriage(jsonNode.get(2).has("motorcycleCarriage"));
-            System.out.println(testObj.getMotorcycleCarriage());
-            System.out.println(testObj.getVehicleStopProbability());
+
+            Motorcycle motorcycle = (Motorcycle) mapper.readValue(jsonNode.get(2).toString(), Vehicle.class);
+            Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
+            Truck truck = (Truck) mapper.readValue(jsonNode.get(1).toString(), Vehicle.class);
+
+            System.out.println(motorcycle.getVehicleStopProbability());
+            System.out.println(car.getVehicleStopProbability());
+            System.out.println(truck.getVehicleStopProbability());
+
             System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
             System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
             System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));
