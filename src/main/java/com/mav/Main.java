@@ -17,24 +17,42 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+        boolean gameCondition = true;
+
         try {
+
             Scanner sc = new Scanner(System.in);
 
-            ObjectMapper mapper = new ObjectMapper();
-            InputStream resourceAsStream = Main.class.getResourceAsStream("/test.json");
-            JsonNode jsonNode = mapper.readTree(resourceAsStream);
+            while (gameCondition){
 
-            Motorcycle motorcycle = (Motorcycle) mapper.readValue(jsonNode.get(2).toString(), Vehicle.class);
-            Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
-            Truck truck = (Truck) mapper.readValue(jsonNode.get(1).toString(), Vehicle.class);
+                String gameStartCondition = sc.nextLine();
 
-            System.out.println(motorcycle.getVehicleStopProbability());
-            System.out.println(car.getVehicleStopProbability());
-            System.out.println(truck.getVehicleStopProbability());
+                if (gameStartCondition.equals("start")){
+                    gameCondition = false;
 
-            System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
-            System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
-            System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));
+                    ObjectMapper mapper = new ObjectMapper();
+                    InputStream resourceAsStream = Main.class.getResourceAsStream("/test.json");
+                    JsonNode jsonNode = mapper.readTree(resourceAsStream);
+
+                    Motorcycle motorcycle = (Motorcycle) mapper.readValue(jsonNode.get(2).toString(), Vehicle.class);
+                    Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
+                    Truck truck = (Truck) mapper.readValue(jsonNode.get(1).toString(), Vehicle.class);
+
+                    System.out.println(motorcycle.getVehicleStopProbability());
+                    System.out.println(car.getVehicleStopProbability());
+                    System.out.println(truck.getVehicleStopProbability());
+
+                    System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
+                    System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
+                    System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));
+                }
+                else if (gameStartCondition.equals("exit")){
+                    gameCondition = false;
+                }
+                else {
+                    System.out.println("Type 'start' or 'exit'");
+                }
+            }
         }
         catch (JsonParseException e) { e.printStackTrace(); }
         catch (JsonMappingException e) { e.printStackTrace(); }
