@@ -28,7 +28,6 @@ public class Main {
                 String gameStartCondition = sc.nextLine();
 
                 if (gameStartCondition.equals("start")){
-                    gameCondition = false;
 
                     ObjectMapper mapper = new ObjectMapper();
                     InputStream resourceAsStream = Main.class.getResourceAsStream("/test.json");
@@ -45,6 +44,9 @@ public class Main {
                     System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
                     System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
                     System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));
+
+                    System.out.println();
+                    System.out.println("Wanna play more? Type 'start'  or 'exit'");
                 }
                 else if (gameStartCondition.equals("exit")){
                     gameCondition = false;
