@@ -6,8 +6,12 @@ public class Motorcycle extends Vehicle {
     private final static int amountWheels = 2;
     private final static int recoveryTime = 15;
 
-    public boolean getMotorcycleCarriage() {
-        return motorcycleCarriage;
+    public String getMotorcycleCarriage() {
+        if (motorcycleCarriage) {
+            return "with Carrige";
+        } else {
+            return "wout Carrige";
+        }
     }
 
     public void setMotorcycleCarriage(boolean motorcycleCarriage) {
@@ -24,7 +28,7 @@ public class Motorcycle extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        if(getMotorcycleCarriage()){
+        if(motorcycleCarriage){
             return (amountWheels + 1) * getFlatTireProbability();
         }
         else {
