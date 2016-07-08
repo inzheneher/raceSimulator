@@ -1,5 +1,6 @@
 [
   {"@type":"Car","speed":220,"flatTireProbability":0.03,"numberOfPeople":4},
   {"@type":"Truck","speed":110,"flatTireProbability":0.01,"cargoWeight":3450},
-  {"@type":"Motorcycle","speed":380,"flatTireProbability":0.02,"motorcycleCarriage":false}
+  {"@type":"Motorcycle","speed":380,"flatTireProbability":0.02,"motorcycleCarriage":true},
+  {"@type":"Race","distance":750}
 ]

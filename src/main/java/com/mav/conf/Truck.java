@@ -30,4 +30,8 @@ public class Truck extends Vehicle {
     public double getRecoveryTime() {
         return recoveryTime;
     }
+
+    public int getDistance() {
+        return 0;
+    }
 }
