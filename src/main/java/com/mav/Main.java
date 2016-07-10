@@ -30,7 +30,7 @@ public class Main {
                 if (gameStartCondition.equals("start")){
 
                     ObjectMapper mapper = new ObjectMapper();
-                    InputStream resourceAsStream = Main.class.getResourceAsStream("/test.json");
+                    InputStream resourceAsStream = Main.class.getResourceAsStream("/config.json");
                     JsonNode jsonNode = mapper.readTree(resourceAsStream);
 
                     Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
