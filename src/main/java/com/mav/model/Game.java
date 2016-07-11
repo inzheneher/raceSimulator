@@ -31,18 +31,24 @@ public class Game {
 
                 if (gameStartCondition.equals("start")) {
 
-                    ObjectMapper mapper = new ObjectMapper();
+                    /*ObjectMapper mapper = new ObjectMapper();
                     InputStream resourceAsStream = Game.class.getResourceAsStream("/config.json");
                     JsonNode jsonNode = mapper.readTree(resourceAsStream);
 
                     Car car = (Car) mapper.readValue(jsonNode.get(0).toString(), Vehicle.class);
                     Truck truck = (Truck) mapper.readValue(jsonNode.get(1).toString(), Vehicle.class);
                     Motorcycle motorcycle = (Motorcycle) mapper.readValue(jsonNode.get(2).toString(), Vehicle.class);
-                    Race race = mapper.readValue(jsonNode.get(3).toString(), Race.class);
+                    Race race = mapper.readValue(jsonNode.get(3).toString(), Race.class);*/
 
-                    System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
+                    Configuration configuration = new Configuration();
+
+                    for (Vehicle v: configuration.getVehicle()){
+                        System.out.println(v);
+                    }
+
+                    /*System.out.println(mapper.readValue(jsonNode.get(0).toString(), Vehicle.class));
                     System.out.println(mapper.readValue(jsonNode.get(1).toString(), Vehicle.class));
-                    System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));
+                    System.out.println(mapper.readValue(jsonNode.get(2).toString(), Vehicle.class));*/
 
                     System.out.println();
 
@@ -52,7 +58,7 @@ public class Game {
                         Thread.sleep(100);
                     }
 
-                    System.out.println();
+                    /*System.out.println();
                     System.out.println();
 
                     System.out.println("Car race time: " +
@@ -62,7 +68,7 @@ public class Game {
                     System.out.println("Motorcycle race time: " +
                             race.getTime(motorcycle.getSpeed()));
 
-                    System.out.println();
+                    System.out.println();*/
 
                     System.out.println(REPEAT_MESSAGE);
                 } else if (gameStartCondition.equals("exit")) {
