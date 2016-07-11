@@ -39,19 +39,19 @@ class Race {
     void calculate(int timeStep) {
         try {
 
-            if (Math.random() < car.getVehicleStopProbability()) {
-                System.out.println(TIRE_CAR_FLAT);
-            }
-            if (Math.random() < truck.getVehicleStopProbability()) {
-                System.out.println(TIRE_TRUCK_FLAT);
-            }
-            if (Math.random() < motorcycle.getVehicleStopProbability()) {
-                System.out.println(TIRE_MOTORCYCLE_FLAT);
-            }
-
             car.setTraveledDistance(configuration.getVehicle().get(0).getSpeed() * timeStep);
             truck.setTraveledDistance(configuration.getVehicle().get(1).getSpeed() * timeStep);
             motorcycle.setTraveledDistance(configuration.getVehicle().get(2).getSpeed() * timeStep);
+
+            if (Math.random() < configuration.getVehicle().get(0).getVehicleStopProbability()) {
+                System.out.println(TIRE_CAR_FLAT);
+            }
+            if (Math.random() < configuration.getVehicle().get(1).getVehicleStopProbability()) {
+                System.out.println(TIRE_TRUCK_FLAT);
+            }
+            if (Math.random() < configuration.getVehicle().get(2).getVehicleStopProbability()) {
+                System.out.println(TIRE_MOTORCYCLE_FLAT);
+            }
 
             System.out.println(CAR_TRAVELED_DISTANCE + car.getTraveledDistance());
             System.out.println(TRUCK_TRAVELED_DISTANCE + truck.getTraveledDistance());
