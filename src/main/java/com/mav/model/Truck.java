@@ -1,12 +1,12 @@
 package com.mav.model;
 
-public class Truck extends Vehicle {
+class Truck extends Vehicle {
 
     private final static int amountWheels = 6;
     private final static int recoveryTime = 35;
     private int cargoWeight;
 
-    public int getCargoWeight() {
+    private int getCargoWeight() {
         return cargoWeight;
     }
 

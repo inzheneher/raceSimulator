@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Motorcycle.class, name = "Motorcycle"),
         @JsonSubTypes.Type(value = Race.class, name = "Race")
 })
-public abstract class Vehicle {
+abstract class Vehicle {
+    private double traveledDistance;
     private int speed;
-    private int traveledDistance;
     private double flatTireProbability;
 
-    public int getSpeed() {
+    int getSpeed() {
         return speed;
     }
 
@@ -23,7 +23,7 @@ public abstract class Vehicle {
         this.speed = speed;
     }
 
-    public double getFlatTireProbability() {
+    double getFlatTireProbability() {
         return flatTireProbability;
     }
 
@@ -31,11 +31,11 @@ public abstract class Vehicle {
         this.flatTireProbability = flatTireProbability;
     }
 
-    public int getTraveledDistance() {
+    double getTraveledDistance() {
         return traveledDistance;
     }
 
-    public void setTraveledDistance(int traveledDistance) {
+    void setTraveledDistance(int traveledDistance) {
         this.traveledDistance = traveledDistance;
     }
 

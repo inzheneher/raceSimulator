@@ -1,7 +1,19 @@
 package com.mav.model;
 
-public class Race {
+import java.io.IOException;
 
+class Race {
+
+    private static final String TIRE_CAR_FLAT = "Car tire is flat. Need repair.";
+    private static final String TIRE_TRUCK_FLAT = "Truck tire is flat. Need repair.";
+    private static final String TIRE_MOTORCYCLE_FLAT = "Motorcycle tire is flat. Need repair.";
+    private static final String CAR_TRAVELED_DISTANCE = "Car traveled: ";
+    private static final String TRUCK_TRAVELED_DISTANCE = "Truck traveled: ";
+    private static final String MOTORCYCLE_TRAVELED_DISTANCE = "Motorcycle traveled: ";
+    private Car car = new Car();
+    private Truck truck = new Truck();
+    private Motorcycle motorcycle = new Motorcycle();
+    private Configuration configuration = new Configuration();
     private int distance;
 
     public double getTime(int speed) {
@@ -16,11 +28,38 @@ public class Race {
         return 0;
     }
 
-    public int getDistance() {
+    private int getDistance() {
         return distance;
     }
 
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    void calculate(int timeStep) {
+        try {
+
+            if (Math.random() < car.getVehicleStopProbability()) {
+                System.out.println(TIRE_CAR_FLAT);
+            }
+            if (Math.random() < truck.getVehicleStopProbability()) {
+                System.out.println(TIRE_TRUCK_FLAT);
+            }
+            if (Math.random() < motorcycle.getVehicleStopProbability()) {
+                System.out.println(TIRE_MOTORCYCLE_FLAT);
+            }
+
+            car.setTraveledDistance(configuration.getVehicle().get(0).getSpeed() * timeStep);
+            truck.setTraveledDistance(configuration.getVehicle().get(1).getSpeed() * timeStep);
+            motorcycle.setTraveledDistance(configuration.getVehicle().get(2).getSpeed() * timeStep);
+
+            System.out.println(CAR_TRAVELED_DISTANCE + car.getTraveledDistance());
+            System.out.println(TRUCK_TRAVELED_DISTANCE + truck.getTraveledDistance());
+            System.out.println(MOTORCYCLE_TRAVELED_DISTANCE + motorcycle.getTraveledDistance());
+
+            Thread.sleep(100);
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

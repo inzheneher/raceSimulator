@@ -1,12 +1,12 @@
 package com.mav.model;
 
-public class Motorcycle extends Vehicle {
+class Motorcycle extends Vehicle {
 
     private final static int amountWheels = 2;
     private final static int recoveryTime = 15;
     private boolean motorcycleCarriage;
 
-    public String getMotorcycleCarriage() {
+    private String getMotorcycleCarriage() {
         if (motorcycleCarriage) {
             return "with Carrige";
         } else {
@@ -28,11 +28,8 @@ public class Motorcycle extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        if (motorcycleCarriage) {
-            return (amountWheels + 1) * getFlatTireProbability();
-        } else {
-            return amountWheels * getFlatTireProbability();
-        }
+        if (motorcycleCarriage) return (amountWheels + 1) * getFlatTireProbability();
+        else return amountWheels * getFlatTireProbability();
     }
 
     public double getRecoveryTime() {
