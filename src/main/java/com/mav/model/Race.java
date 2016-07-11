@@ -1,4 +1,4 @@
-package com.mav.conf;
+package com.mav.model;
 
 public class Race {
 

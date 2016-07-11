@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mav.conf.*;
+import com.mav.model.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,22 +12,25 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static final String anim = "|/-\\";
+    public static final String START_MESSAGE = "To start Race type \"start\", to exit Race type \"exit\".";
+    public static final String REPEAT_MESSAGE = "Wanna play more? Type \"start\"  or \"exit\".";
+    public static final String WRONG_INPUT_MESSAGE = "Type \"start\"  or \"exit\".";
+    public static boolean gameCondition = true;
 
-        boolean gameCondition = true;
-        String anim= "|/-\\";
+    public static void main(String[] args) throws Exception {
 
         try {
 
-            System.out.println("To start Race type 'start', to exit Race type 'exit'");
+            System.out.println(START_MESSAGE);
 
             Scanner sc = new Scanner(System.in);
 
-            while (gameCondition){
+            while (gameCondition) {
 
                 String gameStartCondition = sc.nextLine();
 
-                if (gameStartCondition.equals("start")){
+                if (gameStartCondition.equals("start")) {
 
                     ObjectMapper mapper = new ObjectMapper();
                     InputStream resourceAsStream = Main.class.getResourceAsStream("/config.json");
@@ -44,13 +47,14 @@ public class Main {
 
                     System.out.println();
 
-                    for (int x = 0 ; x <= 100 ; x++){
-                        String data = "\r" + anim.charAt(x % anim.length())  + " " + x ;
+                    for (int x = 0; x <= 100; x++) {
+                        String data = "\r" + anim.charAt(x % anim.length()) + " " + x;
                         System.out.write(data.getBytes());
                         Thread.sleep(100);
                     }
 
-                    System.out.println(); System.out.println();
+                    System.out.println();
+                    System.out.println();
 
                     System.out.println("Car race time: " +
                             race.getTime(car.getSpeed()));
@@ -61,18 +65,19 @@ public class Main {
 
                     System.out.println();
 
-                    System.out.println("Wanna play more? Type 'start'  or 'exit'");
-                }
-                else if (gameStartCondition.equals("exit")){
+                    System.out.println(REPEAT_MESSAGE);
+                } else if (gameStartCondition.equals("exit")) {
                     gameCondition = false;
-                }
-                else {
-                    System.out.println("Type 'start' or 'exit'");
+                } else {
+                    System.out.println(WRONG_INPUT_MESSAGE);
                 }
             }
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (JsonParseException e) { e.printStackTrace(); }
-        catch (JsonMappingException e) { e.printStackTrace(); }
-        catch (IOException e) { e.printStackTrace(); }
     }
 }

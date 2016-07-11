@@ -1,4 +1,4 @@
-package com.mav.conf;
+package com.mav.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -40,5 +40,6 @@ public abstract class Vehicle {
     }
 
     public abstract double getVehicleStopProbability();
+
     public abstract double getRecoveryTime();
 }

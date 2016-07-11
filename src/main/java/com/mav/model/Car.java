@@ -1,10 +1,10 @@
-package com.mav.conf;
+package com.mav.model;
 
 public class Car extends Vehicle {
 
-    private int numberOfPeople;
     private final static int amountWheels = 4;
     private final static int recoveryTime = 25;
+    private int numberOfPeople;
 
     public int getNumberOfPeople() {
         return numberOfPeople;
@@ -15,7 +15,7 @@ public class Car extends Vehicle {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Car{" +
                 "speed=" + getSpeed() +
                 " flatTireProbability=" + getFlatTireProbability() +
