@@ -31,11 +31,11 @@ abstract class Vehicle {
         this.flatTireProbability = flatTireProbability;
     }
 
-    double getTraveledDistance() {
+    public double getTraveledDistance() {
         return traveledDistance;
     }
 
-    void setTraveledDistance(int traveledDistance) {
+    public void setTraveledDistance(int traveledDistance) {
         this.traveledDistance = traveledDistance;
     }
 
