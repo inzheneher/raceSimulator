@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 abstract class Vehicle {
     private double traveledDistance;
-    private int timeToRecover;
+    private double timeToRecover;
     private int speed;
     private double flatTireProbability;
 
@@ -39,7 +39,30 @@ abstract class Vehicle {
         this.traveledDistance = traveledDistance;
     }
 
+    public void flatTire() {
+        timeToRecover = getRecoveryTime();
+    }
+
+    public boolean fix(double timeInterval) {
+        timeToRecover -= timeInterval;
+        if(timeToRecover <= 0){
+            timeToRecover = 0;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isBroken() {
+        if (timeToRecover > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public abstract double getVehicleStopProbability();
 
-    public abstract double getRecoveryTime();
+    protected abstract double getRecoveryTime();
 }

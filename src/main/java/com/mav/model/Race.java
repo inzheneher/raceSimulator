@@ -1,7 +1,9 @@
 package com.mav.model;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Race {
 
@@ -11,36 +13,27 @@ public class Race {
     private static final String CAR_TRAVELED_DISTANCE = "Car traveled: ";
     private static final String TRUCK_TRAVELED_DISTANCE = "Truck traveled: ";
     private static final String MOTORCYCLE_TRAVELED_DISTANCE = "Motorcycle traveled: ";
-    private Car car = new Car();
-    private Truck truck = new Truck();
-    private Motorcycle motorcycle = new Motorcycle();
-    private Configuration configuration = new Configuration();
+
+    private List<Vehicle> vehiсles;
+    private Set<Vehicle> carsInRace;
+    private double distance;
+
 
     public Race(List<Vehicle> vehicles, double distance) {
-    }
-
-    public double getTime(int speed) {
-        return (double) getDistance() / speed;
-    }
-
-    public double getVehicleStopProbability() {
-        return 0;
-    }
-
-    public double getRecoveryTime() {
-        return 0;
-    }
-
-    double getDistance() {
-        return distance;
-    }
-
-
-    public void setDistance(int distance) {
+        this.vehiсles = vehicles;
         this.distance = distance;
+        Set<Vehicle> carsInRace = new HashSet<Vehicle>(this.vehiсles);
     }
 
-    void calculate(int timeStep) {
+    public boolean isRaceOver() {
+        return carsInRace.isEmpty();
+    }
+
+    public void calculateNextState() {
+        if (Math.random() < vehiсle.getVehicle().get(0).getVehicleStopProbability())
+    }
+
+/*    void calculate(int timeStep) {
         try {
 
             car.setTraveledDistance(configuration.getVehicle().get(0).getSpeed() * timeStep);
@@ -65,5 +58,5 @@ public class Race {
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
