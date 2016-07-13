@@ -18,17 +18,21 @@ class Configuration {
 
     private double distance;
 
-    Configuration() throws IOException {
+    Configuration() {
 
-        ObjectMapper mapper = new ObjectMapper();
-        InputStream resourceAsStream = Configuration.class.getResourceAsStream("/config.json");
-        InputStream race = Configuration.class.getResourceAsStream("/raceConfig.txt");
-        JsonNode jsonNode = mapper.readTree(resourceAsStream);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(race));
-        distance = Double.parseDouble(reader.readLine());
-        Iterator<JsonNode> elements = jsonNode.elements();
-        while(elements.hasNext()){
-            vehicles.add(mapper.readValue(elements.next().toString(), Vehicle.class));
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            InputStream resourceAsStream = Configuration.class.getResourceAsStream("/config.json");
+            InputStream race = Configuration.class.getResourceAsStream("/raceConfig.txt");
+            JsonNode jsonNode = mapper.readTree(resourceAsStream);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(race));
+            distance = Double.parseDouble(reader.readLine());
+            Iterator<JsonNode> elements = jsonNode.elements();
+            while(elements.hasNext()){
+                vehicles.add(mapper.readValue(elements.next().toString(), Vehicle.class));
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
