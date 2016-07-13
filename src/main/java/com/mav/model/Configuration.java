@@ -2,7 +2,6 @@ package com.mav.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mav.Main;
 
 import java.io.BufferedReader;
 import java.io.IOException;

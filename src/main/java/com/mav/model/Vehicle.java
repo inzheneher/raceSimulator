@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 abstract class Vehicle {
     private double traveledDistance;
+    private int timeToRecover;
     private int speed;
     private double flatTireProbability;
 

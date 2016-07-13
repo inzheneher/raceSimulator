@@ -2,8 +2,8 @@ package com.mav.model;
 
 class Car extends Vehicle {
 
-    private final static int amountWheels = 4;
-    private final static int recoveryTime = 25;
+    private final static int WHEEL_NUMBER = 4;
+    private final static int RECOVERY_TIME = 25;
     private int numberOfPeople;
 
     private int getNumberOfPeople() {
@@ -24,10 +24,10 @@ class Car extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        return amountWheels * getFlatTireProbability();
+        return WHEEL_NUMBER * getFlatTireProbability();
     }
 
     public double getRecoveryTime() {
-        return recoveryTime;
+        return RECOVERY_TIME;
     }
 }

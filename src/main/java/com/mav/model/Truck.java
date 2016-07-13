@@ -2,8 +2,8 @@ package com.mav.model;
 
 class Truck extends Vehicle {
 
-    private final static int amountWheels = 6;
-    private final static int recoveryTime = 35;
+    private final static int WHEEL_NUMBER = 6;
+    private final static int RECOVERY_TIME = 35;
     private int cargoWeight;
 
     private int getCargoWeight() {
@@ -24,10 +24,10 @@ class Truck extends Vehicle {
     }
 
     public double getVehicleStopProbability() {
-        return amountWheels * getFlatTireProbability();
+        return WHEEL_NUMBER * getFlatTireProbability();
     }
 
     public double getRecoveryTime() {
-        return recoveryTime;
+        return RECOVERY_TIME;
     }
 }
