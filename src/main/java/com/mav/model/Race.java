@@ -16,6 +16,9 @@ class Race {
     private Configuration configuration = new Configuration();
     private int distance;
 
+    Race() throws IOException {
+    }
+
     public double getTime(int speed) {
         return (double) getDistance() / speed;
     }
@@ -28,8 +31,12 @@ class Race {
         return 0;
     }
 
-    private int getDistance() {
+    double getDistance() {
         return distance;
+    }
+
+    double getCar(){
+        return car.getTraveledDistance();
     }
 
     public void setDistance(int distance) {

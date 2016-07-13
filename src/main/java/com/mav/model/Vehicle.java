@@ -7,8 +7,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Car.class, name = "Car"),
         @JsonSubTypes.Type(value = Truck.class, name = "Truck"),
-        @JsonSubTypes.Type(value = Motorcycle.class, name = "Motorcycle"),
-        @JsonSubTypes.Type(value = Race.class, name = "Race")
+        @JsonSubTypes.Type(value = Motorcycle.class, name = "Motorcycle")
 })
 abstract class Vehicle {
     private double traveledDistance;

@@ -14,6 +14,7 @@ public class Game {
 
     public static void game() {
 
+        int i = 0;
         System.out.println(START_MESSAGE);
 
         while (gameCondition) {
@@ -26,8 +27,9 @@ public class Game {
 
                     System.out.println();
 
-                    for (int i = 0; i < 10; i++) {
+                    while (gameLogic.getCar() <= gameLogic.getDistance()){
                         gameLogic.calculate(i);
+                        i++;
                     }
 
                     System.out.println();
