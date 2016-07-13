@@ -1,8 +1,9 @@
 package com.mav.model;
 
 import java.io.IOException;
+import java.util.List;
 
-class Race {
+public class Race {
 
     private static final String TIRE_CAR_FLAT = "Car tire is flat. Need repair.";
     private static final String TIRE_TRUCK_FLAT = "Truck tire is flat. Need repair.";
@@ -14,9 +15,8 @@ class Race {
     private Truck truck = new Truck();
     private Motorcycle motorcycle = new Motorcycle();
     private Configuration configuration = new Configuration();
-    private int distance;
 
-    Race() throws IOException {
+    public Race(List<Vehicle> vehicles, double distance) {
     }
 
     public double getTime(int speed) {
@@ -35,9 +35,6 @@ class Race {
         return distance;
     }
 
-    double getCar(){
-        return car.getTraveledDistance();
-    }
 
     public void setDistance(int distance) {
         this.distance = distance;

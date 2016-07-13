@@ -4,20 +4,19 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-class Configuration {
+public class Configuration {
 
     private List<Vehicle> vehicles = new ArrayList<>();
 
     private double distance;
 
-    Configuration() {
+    public Configuration() {
 
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +38,7 @@ class Configuration {
         return distance;
     }
 
-    List<Vehicle> getVehicle() throws IOException {
+    public List<Vehicle> getVehicles() {
         return vehicles;
     }
 }
