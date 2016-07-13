@@ -54,12 +54,7 @@ abstract class Vehicle {
     }
 
     public boolean isBroken() {
-        if (timeToRecover > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return timeToRecover > 0;
     }
 
     public abstract double getVehicleStopProbability();
