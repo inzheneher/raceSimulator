@@ -38,7 +38,7 @@ class Reporter implements RaceListener {
                 System.out.println(vehicle.getName() + " is broken");
             } else if (vehicle.getTraveledDistance() == raceDistance) {
                 System.out.println(vehicle.getName() + " has finished the race");
-            } else if (vehicle.getTraveledDistance() < raceDistance){
+            } else if (vehicle.getTraveledDistance() < raceDistance) {
                 System.out.println(vehicle.getName() + " traveled distance is " + vehicle.getTraveledDistance());
             } else {
                 System.out.println(vehicle.getName() + " traveled distance is " + raceDistance);

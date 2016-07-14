@@ -5,7 +5,7 @@ import com.mav.model.Vehicle;
 
 import java.util.*;
 
-class Race {
+public class Race {
 
     private final List<Vehicle> vehiclesFinishedRace;
     private final Set<Vehicle> vehiclesInRace;
