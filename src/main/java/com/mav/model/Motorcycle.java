@@ -3,7 +3,7 @@ package com.mav.model;
 class Motorcycle extends Vehicle {
 
     private final static int WHEEL_NUMBER = 2;
-    private final static int RECOVERY_TIME = 15;
+    private final static int RECOVERY_TIME = 2;
     private boolean motorcycleCarriage;
 
     private String getMotorcycleCarriage() {
@@ -22,7 +22,7 @@ class Motorcycle extends Vehicle {
     public String toString() {
         return "Motorcycle{" +
                 "name=" + getName() +
-                "speed=" + getSpeed() +
+                " speed=" + getSpeed() +
                 " flatTireProbability=" + getFlatTireProbability() +
                 " motorcycleCarriage=" + getMotorcycleCarriage() +
                 "}";

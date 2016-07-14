@@ -10,11 +10,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Motorcycle.class, name = "Motorcycle")
 })
 public abstract class Vehicle {
+    private static final int TIME_QUANTUM = 1;
     private int traveledDistance;
     private int timeToRecover;
     private int speed;
     private double flatTireProbability;
-    private static final int TIME_QUANTUM = 1;
     private String name;
 
     public int getSpeed() {
@@ -67,7 +67,6 @@ public abstract class Vehicle {
 
     void reset() {
         traveledDistance = 0;
-        timeToRecover = 0;
     }
 
     public abstract double getVehicleStopProbability();

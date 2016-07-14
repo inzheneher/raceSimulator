@@ -1,5 +1,5 @@
 [
-  {"@type":"Car","speed":220,"flatTireProbability":0.08,"numberOfPeople":4,"name":"Jimny"},
-  {"@type":"Truck","speed":110,"flatTireProbability":0.09,"cargoWeight":3450,"name":"Man"},
-  {"@type":"Motorcycle","speed":380,"flatTireProbability":0.07,"motorcycleCarriage":true,"name":"SuperWheel"}
+  {"@type":"Car","speed":220,"flatTireProbability":0.002,"numberOfPeople":4,"name":"Jimny"},
+  {"@type":"Truck","speed":110,"flatTireProbability":0.003,"cargoWeight":3450,"name":"Man"},
+  {"@type":"Motorcycle","speed":380,"flatTireProbability":0.01,"motorcycleCarriage":true,"name":"SuperWheel"}
 ]

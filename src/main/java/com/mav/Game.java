@@ -4,7 +4,7 @@ import com.mav.model.Configuration;
 
 import java.util.Scanner;
 
-public class Game {
+class Game {
 
     private static final String START_MESSAGE = "To start Race type \"start\", to exit Race type \"exit\".";
     private static final String REPEAT_MESSAGE = "Wanna play more? Type \"start\"  or \"exit\".";
@@ -19,13 +19,13 @@ public class Game {
     private boolean gameCondition = true;
 
 
-    public Game(Configuration config, Race race, Reporter reporter) {
+    Game(Configuration config, Race race, Reporter reporter) {
         this.config = config;
         this.race = race;
         this.reporter = reporter;
     }
 
-    public void run() {
+    void run() {
 
         int i = 0;
         System.out.println(START_MESSAGE);
@@ -57,14 +57,13 @@ public class Game {
     }
 
     private void runRace() {
-        while(!race.isOver()){
+        while (!race.isOver()) {
             race.calculateNextState();
-            try {Thread.sleep(100);
-            }catch (InterruptedException e) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
                 throw new RuntimeException("Thread is interrupted. Game over.");
             }
-
         }
-
     }
 }

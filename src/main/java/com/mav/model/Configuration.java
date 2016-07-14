@@ -26,7 +26,7 @@ public class Configuration {
             BufferedReader reader = new BufferedReader(new InputStreamReader(race));
             distance = Integer.parseInt(reader.readLine());
             Iterator<JsonNode> elements = jsonNode.elements();
-            while(elements.hasNext()){
+            while (elements.hasNext()) {
                 vehicles.add(mapper.readValue(elements.next().toString(), Vehicle.class));
             }
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class Configuration {
         return vehicles;
     }
 
-    public void resetVehicles(){
+    public void resetVehicles() {
         for (Vehicle vehicle : vehicles) {
             vehicle.reset();
         }
