@@ -1,9 +1,6 @@
 package com.mav.model;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Race {
 
@@ -14,19 +11,25 @@ public class Race {
     private static final String TRUCK_TRAVELED_DISTANCE = "Truck traveled: ";
     private static final String MOTORCYCLE_TRAVELED_DISTANCE = "Motorcycle traveled: ";
 
-    private List<Vehicle> vehiсles;
-    private Set<Vehicle> vehiclesInRace;
-    private double raceDistance;
+    private final List<Vehicle> vehiсles;
+    private final List<Vehicle> vehiclesFinishedRace;
+    private final Set<Vehicle> vehiclesInRace;
+    private final double raceDistance;
 
 
     public Race(List<Vehicle> vehicles, double raceDistance) {
         this.vehiсles = vehicles;
         this.raceDistance = raceDistance;
-        Set<Vehicle> vehiclesInRace = new HashSet<Vehicle>(this.vehiсles);
+        vehiclesInRace = new HashSet<>(this.vehiсles);
+        vehiclesFinishedRace = new ArrayList<>();
     }
 
     public boolean isRaceOver() {
         return vehiclesInRace.isEmpty();
+    }
+
+    public List<Vehicle> getVehiclesFinishedRace() {
+        return vehiclesFinishedRace;
     }
 
     public void calculateNextState() {
@@ -42,6 +45,7 @@ public class Race {
                 vehicle.flatTire();
             }
             else if (vehicle.getTraveledDistance() == raceDistance) {
+                vehiclesFinishedRace.add(vehicle);
                 vehicleIterator.remove();
             }
             else {
