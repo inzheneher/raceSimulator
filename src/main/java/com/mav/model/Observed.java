@@ -1,9 +1,9 @@
 package com.mav.model;
 
 public interface Observed {
-    void addObserver(Observer observer);
+    void addObserver(RaceListener observer);
 
-    void removeObserver(Observer observer);
+    void removeObserver(RaceListener observer);
 
-    void notifyObserver(Observer observer);
+    void notifyObserver(RaceListener observer);
 }

@@ -16,10 +16,12 @@ public class Race {
     private final Set<Vehicle> vehiclesInRace;
     private final double raceDistance;
 
+    private RaceListener raceListener;
 
-    public Race(List<Vehicle> vehicles, double raceDistance) {
-        this.vehiсles = vehicles;
-        this.raceDistance = raceDistance;
+
+    public Race(Configuration configuration) {
+        vehiсles = configuration.getVehicles();
+        raceDistance = configuration.getDistance();
         vehiclesInRace = new HashSet<>(this.vehiсles);
         vehiclesFinishedRace = new ArrayList<>();
     }
@@ -52,5 +54,12 @@ public class Race {
                 vehicle.travel();
             }
         }
+        if(raceListener  != null) {
+            raceListener.nextTimeQuantumPassed();
+        }
+    }
+
+    public void setRaceListener(RaceListener raceListener) {
+        this.raceListener = raceListener;
     }
 }

@@ -14,7 +14,7 @@ public class Configuration {
 
     private List<Vehicle> vehicles = new ArrayList<>();
 
-    private double distance;
+    private int distance;
 
     public Configuration() {
 
@@ -24,7 +24,7 @@ public class Configuration {
             InputStream race = Configuration.class.getResourceAsStream("/raceConfig.txt");
             JsonNode jsonNode = mapper.readTree(resourceAsStream);
             BufferedReader reader = new BufferedReader(new InputStreamReader(race));
-            distance = Double.parseDouble(reader.readLine());
+            distance = Integer.parseInt(reader.readLine());
             Iterator<JsonNode> elements = jsonNode.elements();
             while(elements.hasNext()){
                 vehicles.add(mapper.readValue(elements.next().toString(), Vehicle.class));
@@ -34,7 +34,7 @@ public class Configuration {
         }
     }
 
-    public double getDistance() {
+    public int getDistance() {
         return distance;
     }
 

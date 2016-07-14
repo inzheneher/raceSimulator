@@ -21,6 +21,7 @@ class Motorcycle extends Vehicle {
     @Override
     public String toString() {
         return "Motorcycle{" +
+                "name=" + getName() +
                 "speed=" + getSpeed() +
                 " flatTireProbability=" + getFlatTireProbability() +
                 " motorcycleCarriage=" + getMotorcycleCarriage() +
@@ -32,7 +33,7 @@ class Motorcycle extends Vehicle {
         else return WHEEL_NUMBER * getFlatTireProbability();
     }
 
-    public double getRecoveryTime() {
+    public int getRecoveryTime() {
         return RECOVERY_TIME;
     }
 }

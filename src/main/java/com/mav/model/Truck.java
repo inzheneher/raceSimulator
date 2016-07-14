@@ -17,6 +17,7 @@ class Truck extends Vehicle {
     @Override
     public String toString() {
         return "Truck{" +
+                "name=" + getName() +
                 "speed=" + getSpeed() +
                 " flatTireProbability=" + getFlatTireProbability() +
                 " numberOfPeople=" + getCargoWeight() +
@@ -27,7 +28,7 @@ class Truck extends Vehicle {
         return WHEEL_NUMBER * getFlatTireProbability();
     }
 
-    public double getRecoveryTime() {
+    public int getRecoveryTime() {
         return RECOVERY_TIME;
     }
 }
