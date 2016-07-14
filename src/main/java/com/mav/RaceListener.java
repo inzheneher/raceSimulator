@@ -1,5 +1,5 @@
 package com.mav;
 
-public interface RaceListener {
+interface RaceListener {
     void nextTimeQuantumPassed();
 }
