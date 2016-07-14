@@ -42,6 +42,7 @@ class Game {
                     runRace();
                     reporter.printRaceResults();
                     System.out.println(REPEAT_MESSAGE);
+                    race.resetRace();
                     config.resetVehicles();
                     break;
 

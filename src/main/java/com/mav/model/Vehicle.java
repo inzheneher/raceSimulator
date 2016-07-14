@@ -67,6 +67,7 @@ public abstract class Vehicle {
 
     void reset() {
         traveledDistance = 0;
+        timeToRecover = 0;
     }
 
     public abstract double getVehicleStopProbability();

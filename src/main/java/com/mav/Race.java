@@ -8,13 +8,13 @@ import java.util.*;
 public class Race {
 
     private final List<Vehicle> vehiclesFinishedRace;
-    private final Set<Vehicle> vehiclesInRace;
-    private final double raceDistance;
+    public Set<Vehicle> vehiclesInRace;
+    public double raceDistance;
 
     private RaceListener raceListener;
 
 
-    Race(Configuration configuration) {
+    public Race(Configuration configuration) {
         List<Vehicle> vehiсles = configuration.getVehicles();
         raceDistance = configuration.getDistance();
         vehiclesInRace = new HashSet<>(vehiсles);
@@ -53,5 +53,10 @@ public class Race {
 
     void setRaceListener(RaceListener raceListener) {
         this.raceListener = raceListener;
+    }
+
+    public void resetRace(){
+        vehiclesInRace.addAll(vehiclesFinishedRace);
+        vehiclesFinishedRace.clear();
     }
 }
