@@ -1,6 +1,5 @@
 package com.mav.model;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Race {
     }
 
     public void calculateNextState() {
-        Iterator<Vehicle> vehicleIterator = vehiclesInRace.iterator()
+        Iterator<Vehicle> vehicleIterator = vehiclesInRace.iterator();
         while(vehicleIterator.hasNext()){
 
             Vehicle vehicle = vehicleIterator.next();
@@ -50,31 +49,4 @@ public class Race {
             }
         }
     }
-
-/*    void calculate(int timeStep) {
-        try {
-
-            car.setTraveledDistance(configuration.getVehicle().get(0).getSpeed() * timeStep);
-            truck.setTraveledDistance(configuration.getVehicle().get(1).getSpeed() * timeStep);
-            motorcycle.setTraveledDistance(configuration.getVehicle().get(2).getSpeed() * timeStep);
-
-            if (Math.random() < configuration.getVehicle().get(0).getVehicleStopProbability()) {
-                System.out.println(TIRE_CAR_FLAT);
-            }
-            if (Math.random() < configuration.getVehicle().get(1).getVehicleStopProbability()) {
-                System.out.println(TIRE_TRUCK_FLAT);
-            }
-            if (Math.random() < configuration.getVehicle().get(2).getVehicleStopProbability()) {
-                System.out.println(TIRE_MOTORCYCLE_FLAT);
-            }
-
-            System.out.println(CAR_TRAVELED_DISTANCE + car.getTraveledDistance());
-            System.out.println(TRUCK_TRAVELED_DISTANCE + truck.getTraveledDistance());
-            System.out.println(MOTORCYCLE_TRAVELED_DISTANCE + motorcycle.getTraveledDistance());
-
-            Thread.sleep(100);
-        } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 }
