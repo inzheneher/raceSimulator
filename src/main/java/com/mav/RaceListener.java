@@ -1,4 +1,4 @@
-package com.mav.model;
+package com.mav;
 
 public interface RaceListener {
     void nextTimeQuantumPassed();

@@ -41,4 +41,10 @@ public class Configuration {
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
+
+    public void resetVehicles(){
+        for (Vehicle vehicle : vehicles) {
+            vehicle.reset();
+        }
+    }
 }

@@ -1,4 +1,6 @@
-package com.mav.model;
+package com.mav;
+
+import com.mav.model.Configuration;
 
 import java.util.Scanner;
 
@@ -7,12 +9,23 @@ public class Game {
     private static final String START_MESSAGE = "To start Race type \"start\", to exit Race type \"exit\".";
     private static final String REPEAT_MESSAGE = "Wanna play more? Type \"start\"  or \"exit\".";
     private static final String WRONG_INPUT_MESSAGE = "Type \"start\"  or \"exit\".";
-    private static boolean gameCondition = true;
+
 
     private static Scanner sc = new Scanner(System.in);
-    private static Race gameLogic = new Race();
 
-    public static void game() {
+    private final Configuration config;
+    private final Race race;
+    private final Reporter reporter;
+    private boolean gameCondition = true;
+
+
+    public Game(Configuration config, Race race, Reporter reporter) {
+        this.config = config;
+        this.race = race;
+        this.reporter = reporter;
+    }
+
+    public void run() {
 
         int i = 0;
         System.out.println(START_MESSAGE);
@@ -24,17 +37,12 @@ public class Game {
             switch (gameStartCondition) {
 
                 case "start":
-
+                    reporter.printVehiclesList();
                     System.out.println();
-
-                    while (gameLogic.getCar() <= gameLogic.getDistance()){
-                        gameLogic.calculate(i);
-                        i++;
-                    }
-
-                    System.out.println();
-
+                    runRace();
+                    reporter.printRaceResults();
                     System.out.println(REPEAT_MESSAGE);
+                    config.resetVehicles();
                     break;
 
                 case "exit":
@@ -46,5 +54,17 @@ public class Game {
                     break;
             }
         }
+    }
+
+    private void runRace() {
+        while(!race.isOver()){
+            race.calculateNextState();
+            try {Thread.sleep(100);
+            }catch (InterruptedException e) {
+                throw new RuntimeException("Thread is interrupted. Game over.");
+            }
+
+        }
+
     }
 }

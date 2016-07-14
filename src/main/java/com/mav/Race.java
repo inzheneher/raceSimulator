@@ -1,4 +1,7 @@
-package com.mav.model;
+package com.mav;
+
+import com.mav.model.Configuration;
+import com.mav.model.Vehicle;
 
 import java.util.*;
 
@@ -26,7 +29,7 @@ public class Race {
         vehiclesFinishedRace = new ArrayList<>();
     }
 
-    public boolean isRaceOver() {
+    public boolean isOver() {
         return vehiclesInRace.isEmpty();
     }
 
@@ -46,7 +49,7 @@ public class Race {
             else if (Math.random() < vehicle.getVehicleStopProbability()) {
                 vehicle.flatTire();
             }
-            else if (vehicle.getTraveledDistance() == raceDistance) {
+            else if (vehicle.getTraveledDistance() >= raceDistance) {
                 vehiclesFinishedRace.add(vehicle);
                 vehicleIterator.remove();
             }

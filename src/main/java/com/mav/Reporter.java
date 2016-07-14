@@ -1,4 +1,7 @@
-package com.mav.model;
+package com.mav;
+
+import com.mav.model.Configuration;
+import com.mav.model.Vehicle;
 
 import java.util.List;
 
@@ -13,7 +16,6 @@ public class Reporter implements RaceListener {
         vehiсles = configuration.getVehicles();
         finishedVehicles = race.getVehiclesFinishedRace();
         raceDistance = configuration.getDistance();
-
     }
 
     public void printVehiclesList(){
@@ -28,7 +30,6 @@ public class Reporter implements RaceListener {
         for(Vehicle vehicle : finishedVehicles) {
             System.out.println(vehicle.getName());
         }
-
     }
 
     private void printRaceProgress() {
@@ -40,10 +41,8 @@ public class Reporter implements RaceListener {
             } else {
                 System.out.println(vehicle.getName() + " traveled distance is "  + vehicle.getTraveledDistance());
             }
-
         }
     }
-
 
     @Override
     public void nextTimeQuantumPassed() {
