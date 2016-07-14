@@ -14,10 +14,7 @@ abstract class Vehicle {
     private double timeToRecover;
     private int speed;
     private double flatTireProbability;
-
-    int getSpeed() {
-        return speed;
-    }
+    private static final int TIME_QUANTUM = 1;
 
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -43,18 +40,16 @@ abstract class Vehicle {
         timeToRecover = getRecoveryTime();
     }
 
-    public boolean fix(double timeInterval) {
-        timeToRecover -= timeInterval;
-        if(timeToRecover <= 0){
-            timeToRecover = 0;
-            return true;
-        } else {
-            return false;
-        }
+    public void decrementTimeToRecover() {
+        timeToRecover--;
     }
 
     public boolean isBroken() {
         return timeToRecover > 0;
+    }
+
+    public void travel() {
+        traveledDistance += speed * TIME_QUANTUM;
     }
 
     public abstract double getVehicleStopProbability();

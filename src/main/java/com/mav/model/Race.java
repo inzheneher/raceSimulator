@@ -2,6 +2,7 @@ package com.mav.model;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -15,22 +16,39 @@ public class Race {
     private static final String MOTORCYCLE_TRAVELED_DISTANCE = "Motorcycle traveled: ";
 
     private List<Vehicle> vehiсles;
-    private Set<Vehicle> carsInRace;
-    private double distance;
+    private Set<Vehicle> vehiclesInRace;
+    private double raceDistance;
 
 
-    public Race(List<Vehicle> vehicles, double distance) {
+    public Race(List<Vehicle> vehicles, double raceDistance) {
         this.vehiсles = vehicles;
-        this.distance = distance;
-        Set<Vehicle> carsInRace = new HashSet<Vehicle>(this.vehiсles);
+        this.raceDistance = raceDistance;
+        Set<Vehicle> vehiclesInRace = new HashSet<Vehicle>(this.vehiсles);
     }
 
     public boolean isRaceOver() {
-        return carsInRace.isEmpty();
+        return vehiclesInRace.isEmpty();
     }
 
     public void calculateNextState() {
-        if (Math.random() < vehiсle.getVehicle().get(0).getVehicleStopProbability())
+        Iterator<Vehicle> vehicleIterator = vehiclesInRace.iterator()
+        while(vehicleIterator.hasNext()){
+
+            Vehicle vehicle = vehicleIterator.next();
+
+            if (vehicle.isBroken()) {
+                vehicle.decrementTimeToRecover();
+            }
+            else if (Math.random() < vehicle.getVehicleStopProbability()) {
+                vehicle.flatTire();
+            }
+            else if (vehicle.getTraveledDistance() == raceDistance) {
+                vehicleIterator.remove();
+            }
+            else {
+                vehicle.travel();
+            }
+        }
     }
 
 /*    void calculate(int timeStep) {
