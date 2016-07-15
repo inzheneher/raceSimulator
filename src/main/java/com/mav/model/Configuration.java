@@ -1,5 +1,12 @@
 package com.mav.model;
 
+/**
+ * This class reas data from configuration files,
+ * config.json - for vehicles parameters,
+ * raceConfig.txt - for distance length.
+ * Also here is the method is used for reset race after finish.
+ */
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -1,5 +1,10 @@
 package com.mav.model;
 
+/**
+ * This class describes vehicle type Car
+ * and determine its behavior.
+ */
+
 class Car extends Vehicle {
 
     private final static int WHEEL_NUMBER = 4;

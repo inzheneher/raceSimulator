@@ -1,5 +1,10 @@
 package com.mav;
 
+/**
+ * This class is responsible for printing in console
+ * messages and result tables during the race.
+ */
+
 import com.mav.model.Configuration;
 import com.mav.model.Vehicle;
 

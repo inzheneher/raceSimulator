@@ -1,5 +1,9 @@
 package com.mav;
 
+/**
+ * This class is a game engine.
+ */
+
 import com.mav.model.Configuration;
 import com.mav.model.Vehicle;
 

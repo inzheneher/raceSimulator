@@ -1,5 +1,11 @@
 package com.mav.model;
 
+/**
+ * This class is the parent class for all vehicles:
+ * Cars, Trucks and Motorcycles.
+ * It determines common behavior for them.
+ */
+
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 

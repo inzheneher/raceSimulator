@@ -1,5 +1,10 @@
 package com.mav;
 
+/**
+ * This class is used to communicate with user,
+ * ask questions and depending on answers, does different things.
+ */
+
 import com.mav.model.Configuration;
 
 import java.util.Scanner;

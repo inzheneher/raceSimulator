@@ -1,5 +1,10 @@
 package com.mav.model;
 
+/**
+ * This class describes vehicle type Motorcycle
+ * and determine its behavior.
+ */
+
 class Motorcycle extends Vehicle {
 
     private final static int WHEEL_NUMBER = 2;

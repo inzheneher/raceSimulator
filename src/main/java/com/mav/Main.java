@@ -1,4 +1,9 @@
 package com.mav;
+/**
+ * Main is an entry point for the program.
+ * Also it's responsible for creation of
+ * main program objects and for dependency injection.
+ */
 
 import com.mav.model.Configuration;
 
