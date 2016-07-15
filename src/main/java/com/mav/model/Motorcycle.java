@@ -14,7 +14,7 @@ class Motorcycle extends Vehicle {
         }
     }
 
-    public void setMotorcycleCarriage(boolean motorcycleCarriage) {
+    private void setMotorcycleCarriage(boolean motorcycleCarriage) {
         this.motorcycleCarriage = motorcycleCarriage;
     }
 

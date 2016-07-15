@@ -10,7 +10,7 @@ class Car extends Vehicle {
         return numberOfPeople;
     }
 
-    public void setNumberOfPeople(int numberOfPeople) {
+    private void setNumberOfPeople(int numberOfPeople) {
         this.numberOfPeople = numberOfPeople;
     }
 

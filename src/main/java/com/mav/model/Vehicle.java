@@ -17,11 +17,11 @@ public abstract class Vehicle {
     private double flatTireProbability;
     private String name;
 
-    public int getSpeed() {
+    int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    private void setSpeed(int speed) {
         this.speed = speed;
     }
 
@@ -29,16 +29,12 @@ public abstract class Vehicle {
         return flatTireProbability;
     }
 
-    public void setFlatTireProbability(double flatTireProbability) {
+    private void setFlatTireProbability(double flatTireProbability) {
         this.flatTireProbability = flatTireProbability;
     }
 
     public int getTraveledDistance() {
         return traveledDistance;
-    }
-
-    void setTraveledDistance(int traveledDistance) {
-        this.traveledDistance = traveledDistance;
     }
 
     public void flatTire() {
@@ -61,7 +57,7 @@ public abstract class Vehicle {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 

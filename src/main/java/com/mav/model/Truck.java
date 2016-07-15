@@ -10,7 +10,7 @@ class Truck extends Vehicle {
         return cargoWeight;
     }
 
-    public void setCargoWeight(int cargoWeight) {
+    private void setCargoWeight(int cargoWeight) {
         this.cargoWeight = cargoWeight;
     }
 
