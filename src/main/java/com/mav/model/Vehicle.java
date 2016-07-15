@@ -25,7 +25,7 @@ public abstract class Vehicle {
         this.speed = speed;
     }
 
-    double getFlatTireProbability() {
+    protected double getFlatTireProbability() {
         return flatTireProbability;
     }
 
