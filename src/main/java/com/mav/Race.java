@@ -19,9 +19,8 @@ class Race {
 
 
     Race(Configuration configuration) {
-        List<Vehicle> vehiсles = configuration.getVehicles();
         raceDistance = configuration.getDistance();
-        vehiclesInRace = new HashSet<>(vehiсles);
+        vehiclesInRace = new HashSet<>(configuration.getVehicles());
         vehiclesFinishedRace = new ArrayList<>();
     }
 
