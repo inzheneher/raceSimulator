@@ -1,2 +1,3 @@
 This is the console game - race simulator.
 All you need is start the app and type start or exit in console.
+So far...
